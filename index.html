@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Info Cuaca</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <aside class="panel weather-input">
+      <h2>🌤️ Info Cuaca</h2>
+      <input id="userlocation" placeholder="Masukkan kota (contoh: Jakarta)" value="Jakarta" />
+      <div style="margin:8px 0;display:flex;gap:8px;align-items:center">
+        <select id="converter"><option value="metric">°C</option><option value="imperial">°F</option></select>
+        <button id="searchBtn">Cari</button>
+      </div>
+      <p class="muted">Gunakan lokasi Anda atau cari kota secara manual.</p>
+
+      <!-- AI widget will be injected by script.js into this panel -->
+      <div id="aiWidgetWrap"></div>
+    </aside>
+
+    <section class="maincard">
+      <div class="top">
+        <div id="weatherIcon" class="bigicon">☁️</div>
+        <div class="summary">
+          <div id="city" class="city">—</div>
+          <div id="temperature" class="temp">--°C</div>
+          <div id="feelslike" class="muted">Terasa --</div>
+          <div id="description" class="muted">—</div>
+          <div id="date" class="muted"></div>
+        </div>
+      </div>
+
+      <!-- map container -->
+      <div id="map" class="map"></div>
+
+      <div class="stats">
+        <div>💧 Kelembaban: <span id="humidityValue">—</span></div>
+        <div>💨 Angin: <span id="windValue">—</span></div>
+        <div>☁️ Awan: <span id="cloudValue">—</span></div>
+        <div>🔻 Tekanan: <span id="pressureValue">—</span></div>
+        <div>🌅 Terbit: <span id="sunriseValue">—</span></div>
+        <div>🌇 Terbenam: <span id="sunsetValue">—</span></div>
+        <div>🌞 UV Index: <span id="uvValue">—</span></div>
+      </div>
+
+      <h3>Ramalan 7 Hari</h3>
+      <div id="forecast" class="forecast-grid"></div>
+
+      <h3>Ramalan Jam Berikutnya</h3>
+      <div id="hourlyForecast" class="forecast-grid"></div>
+    </section>
+  </main>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="script.js"></script>
+</body>
+</html>
